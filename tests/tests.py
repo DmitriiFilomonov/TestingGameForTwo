@@ -50,5 +50,10 @@ class TestGame(unittest.TestCase):
 		game.player2.score = 3
 		self.assertEqual(game.check_winner()[0], game.player1)
 
+	def test_read_file(self):
+		test_file = open("text_test.txt", "r")
+		self.assertEqual(test_file.readline(), "123_321")
+		test_file.close()
+
 if __name__ == '__main__':
 	unittest.main()
