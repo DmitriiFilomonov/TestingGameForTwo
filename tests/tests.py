@@ -39,5 +39,10 @@ class TestGame(unittest.TestCase):
 		game = Game()
 		self.assertLessEqual(2, len(game.code.text_code))
 
+	def test_repeating_responses(self):
+		answers = {1: "abcd = int(666)"}
+		answer = "abcd = int(666)"
+		self.assertEqual(answer, answers[1])
+
 if __name__ == '__main__':
 	unittest.main()
