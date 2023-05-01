@@ -31,6 +31,10 @@ class TestGame(unittest.TestCase):
 		self.assertIsInstance(game.player1, Player)
 		self.assertIsInstance(game.player2, Player)
 
+	def test_get_activ_player(self):
+		game = Game()
+		self.assertFalse(game.get_activ_player().activ)
+		
 
 if __name__ == '__main__':
 	unittest.main()
