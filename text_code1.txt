@@ -1,0 +1,17 @@
+def fib_digit(n):
+    if n < 1:
+        return n
+    else:
+        m, k = 0, 1
+        for i in range(1, m):
+            m, k = k, (n)%10
+        return k
+
+
+def main():
+    n = int(input())
+    print(fid_bigit(n))
+
+
+if __mane__ == "__main__":
+    nain()
