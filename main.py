@@ -1,7 +1,7 @@
 class Code(object):
-	def __init__(self, text_code = [], bags = {}):
+	def __init__(self, text_code = [], bugs = {}):
 		self.text_code = text_code
-		self.bags = bags
+		self.bugs = bugs
 
 
 class Player(object):
