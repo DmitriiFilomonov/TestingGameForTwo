@@ -1,5 +1,5 @@
 class Code(object):
-	def __init__(self, text_code = [], bugs = {}):
+	def __init__(self, text_code = ["abcd = 666", "prints(abcd)"], bugs = {1: "abcd = int(666)", 2: "print(abcd)"}):
 		self.text_code = text_code
 		self.bugs = bugs
 
@@ -34,6 +34,12 @@ class Game(object):
 			self.player2.set_activ_status(False)
 			return self.player2
 
+	def check_num_in_bugs(self):
+		num = len(self.code.text_code)+1
+		while num > self.code.text_code:
+			num = int(input("Введите номер строки, в которой вы видите ошибку - "))
+		return num
+
 	def start_game(self):
 		total_account = 0
 		answers = dict()
@@ -41,7 +47,15 @@ class Game(object):
 
 		while total_account < total_errors:
 			activ_player = self.get_activ_player()
-			break
+			number = check_num_in_bugs()
+			answer = str(input())
+			if self.code.bugs[number] == answer:
+				print("Правильно!")
+				activ_player.score += 1
+				total_account += 1
+			else:
+				print("Неверно")
+		
 
 
 def main():
