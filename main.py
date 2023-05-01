@@ -40,6 +40,14 @@ class Game(object):
 			num = int(input("Введите номер строки, в которой вы видите ошибку - "))
 		return num
 
+	def check_winner(self):
+		if self.player1.score == self.player2.score:
+			return [self.player1, self.player2, 0]
+		elif self.player1.score > self.player2.score:
+			return [self.player1, self.player2]
+		else:
+			return [self.player2, self.player1]
+
 	def start_game(self):
 		total_account = 0
 		answers = dict()
@@ -59,7 +67,12 @@ class Game(object):
 					total_account += 1
 			else:
 				print("Неверно")
-		
+		winner = self.check_winner()
+		if winner[-1] != 0:
+			print('Победил со счетом {0}/{1} игрок - {2}'.format(winner[0].score, winner[1].score, winner[0].name))
+		else:
+			print('Ничья cо счетом {0}/{1}'.format(winner[0].score, winner[1].score))
+		exit = input()
 
 
 def main():
