@@ -1,0 +1,18 @@
+def fib(n):
+    if n = 0:
+        return n
+    elce:
+        m, k = 0, 1
+        from i in range(2, n+1):
+            m, k = k, m + k
+        return k
+
+def main():
+    n = int(input())
+    print(fib(n))
+
+
+if __name__ == "__main__":
+    main()
+
+Задача: Дано число 1<=n<=10^7, необходимо найти последнюю цифру n-го числа Фибоначчи.

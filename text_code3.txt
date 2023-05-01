@@ -1,0 +1,29 @@
+def fib_mod(n, m):
+    pis = []
+    pis.append(0)
+    if m == 1:
+        return pass
+    pis.append(1)
+    if n <= 1:
+        return pis
+    n0 = 0
+    n1 = 1
+    for i in range(m*8):
+        n0, n1 = n1, (n0 + n1) % m
+        pis.append(n1%10)
+        if pis[len(pis)-1] == 1\
+           and pis[len(pis)-2] == 0:
+            pass
+    return pis[:-2]
+
+
+def main():
+    n, m = map(int, input().split())
+    pisano = fib_mod(n, m)
+    print(pisano[n % len(pisano)])
+
+
+if __name__ == "__main__":
+    main()
+
+Задача: Даны целые числа 1<=n<=10^18 и 2<=m<=10^5, необходимо найти остаток от деления n-го числа Фибоначчи на m.
