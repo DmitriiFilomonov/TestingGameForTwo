@@ -44,5 +44,11 @@ class TestGame(unittest.TestCase):
 		answer = "abcd = int(666)"
 		self.assertEqual(answer, answers[1])
 
+	def test_check_winner(self):
+		game = Game()
+		game.player1.score = 5
+		game.player2.score = 3
+		self.assertEqual(game.check_winner()[0], game.player1)
+
 if __name__ == '__main__':
 	unittest.main()
