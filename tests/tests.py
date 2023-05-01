@@ -34,7 +34,10 @@ class TestGame(unittest.TestCase):
 	def test_get_activ_player(self):
 		game = Game()
 		self.assertFalse(game.get_activ_player().activ)
-		
+
+	def test_check_num_in_bugs(self):
+		game = Game()
+		self.assertLessEqual(2, len(game.code.text_code))
 
 if __name__ == '__main__':
 	unittest.main()
