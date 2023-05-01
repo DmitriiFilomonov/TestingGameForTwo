@@ -36,7 +36,7 @@ class Game(object):
 
 	def check_num_in_bugs(self):
 		num = len(self.code.text_code)+1
-		while num > self.code.text_code:
+		while num > len(self.code.text_code):
 			num = int(input("Введите номер строки, в которой вы видите ошибку - "))
 		return num
 
@@ -47,12 +47,16 @@ class Game(object):
 
 		while total_account < total_errors:
 			activ_player = self.get_activ_player()
-			number = check_num_in_bugs()
+			number = self.check_num_in_bugs()
 			answer = str(input())
 			if self.code.bugs[number] == answer:
 				print("Правильно!")
-				activ_player.score += 1
-				total_account += 1
+				if (number in answers) and (answers[number] == answer):
+					print("Но такой ответ уже был")
+				else:
+					answers[number] = answer
+					activ_player.score += 1
+					total_account += 1
 			else:
 				print("Неверно")
 		
